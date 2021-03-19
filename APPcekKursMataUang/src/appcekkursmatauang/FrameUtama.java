@@ -5,6 +5,9 @@
  */
 package appcekkursmatauang;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author User4
@@ -33,25 +36,32 @@ public class FrameUtama extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        tnilai = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "IDR" }));
+        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IDR", "USD" }));
         combo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combo1ActionPerformed(evt);
             }
         });
 
+        combo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CAD", "HDK", "USD", "SGD", "AUD" }));
+
         jLabel1.setText("DARI");
 
         jLabel2.setText("KE");
 
         jButton1.setText("CEK KURS SAAT INI ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("CEK KURS MATA UANG DUNIA");
 
@@ -78,12 +88,12 @@ public class FrameUtama extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(tnilai, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)
                         .addGap(44, 44, 44)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +111,7 @@ public class FrameUtama extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tnilai, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96))
         );
 
@@ -111,14 +121,82 @@ public class FrameUtama extends javax.swing.JFrame {
     @SuppressWarnings("empty-statement")
     private void combo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo1ActionPerformed
       String pilihan = combo1.getSelectedItem().toString();
+      
       if ("IDR".equals(pilihan)){ combo2.removeAllItems(); combo2.addItem("CAD"); combo2.addItem("HKD");combo2.addItem("USD"); combo2.addItem("SGD");combo2.addItem("AUD"); 
       
       }else if("USD".equals(pilihan)){ combo2.removeAllItems(); combo2.addItem("HKD"); ;combo2.addItem("GBP");combo2.addItem("RON"); combo2.addItem("SEK");combo2.addItem("IDR");
       
       }
-      
-      
+     
     }//GEN-LAST:event_combo1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String pilihan = combo1.getSelectedItem().toString();
+        String ngr = combo2.getSelectedItem().toString();
+              if("IDR".equals(pilihan)){ 
+             switch (ngr){ 
+                 case "CAD":
+                  double cad = 0.0000864029; 
+              double ina = 1 ;
+               double hasil = ina * cad;
+             tnilai.setText("CAD "+ hasil);
+             break;             
+             case "HKD": double hdk = 0.000538317;
+              ina = 1 ;
+               hasil = ina * hdk;
+                tnilai.setText("HKD "+ hasil);
+              break;
+             case "USD": double usd = 0.0000693107;
+              ina = 1 ;
+             hasil = ina * usd;
+              tnilai.setText("USD "+ hasil);
+             break;
+            case "SGD": double sdg =0.0000932724;
+              ina = 1 ;
+             hasil = ina * sdg;
+              tnilai.setText("SGD "+ hasil);
+           break;
+             case "AUD": double aud = 0.0000894425; 
+              ina = 1 ;
+              hasil = ina * aud;
+               tnilai.setText("AUD "+ hasil);
+             break;
+             default: }
+              }                
+             else if ("USD".equals(pilihan)){ 
+             switch (ngr){ 
+                 case "HKD":
+                  double hdk2 = 7.766728157; 
+              double ina = 1 ;
+              double hasil = ina * hdk2;
+             tnilai.setText("HDK "+ hasil);
+                  
+                     break;             
+             case "GBP": double gbp = 0.7206523562;
+              double usd = 1 ;
+               hasil = usd * gbp;
+               tnilai.setText("GBP "+ hasil);
+              break;
+             case "RON": double ron = 4.0976018782;
+             usd = 1; 
+             hasil = usd * ron;
+             tnilai.setText("RON "+ hasil);
+             break;
+            case "SEK": double sek =8.501425457;
+              usd = 1 ;
+             hasil = usd * sek;
+             tnilai.setText("SEK "+ hasil);
+           break;
+             case "IDR": double idr = 14427.7964112024; 
+             usd = 1 ;
+              hasil = usd * idr;
+              tnilai.setText("IDR "+ hasil);
+             break;
+             default: 
+              }                 
+             }
+              
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,6 +241,6 @@ public class FrameUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField tnilai;
     // End of variables declaration//GEN-END:variables
 }
