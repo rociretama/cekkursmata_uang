@@ -139,7 +139,7 @@ public class FrameUtama extends javax.swing.JFrame {
                   double cad = 0.0000864029; 
               double ina = 1 ;
                double hasil = ina * cad;
-             tnilai.setText("CAD "+ hasil);
+             tnilai.setText("CAD "+String.valueOf(hasil));
              break;             
              case "HKD": double hdk = 0.000538317;
               ina = 1 ;
