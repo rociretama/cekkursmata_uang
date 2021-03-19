@@ -8,6 +8,7 @@ package appcekkursmatauang;
 import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Set;
+import static java.util.logging.Logger.global;
 
 /**
  *
@@ -121,14 +122,7 @@ public class FrameUtama extends javax.swing.JFrame {
 
     @SuppressWarnings("empty-statement")
     private void combo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo1ActionPerformed
-      String pilihan = combo1.getSelectedItem().toString();
       
-      if ("IDR".equals(pilihan)){ combo2.removeAllItems(); combo2.addItem("CAD"); combo2.addItem("HKD");combo2.addItem("USD"); combo2.addItem("SGD");combo2.addItem("AUD"); 
-      
-      }else if("USD".equals(pilihan)){ combo2.removeAllItems(); combo2.addItem("HKD"); ;combo2.addItem("GBP");combo2.addItem("RON"); combo2.addItem("SEK");combo2.addItem("IDR");
-      
-      }
-     
     }//GEN-LAST:event_combo1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
